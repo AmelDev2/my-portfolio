@@ -34,7 +34,7 @@ export const Certifications: React.FC<CertificationsProps> = ({ lang }) => {
           {/* Badge / Icon */}
           <div className="w-24 h-24 rounded-2xl bg-[(--accent-burgundy)]/10 border border-[(--accent-burgundy)]/30 flex items-center justify-center text-[(--accent-burgundy)] shrink-0 group-hover:scale-110 transition-transform duration-300 overflow-hidden">
             {/* <Award className="w-12 h-12" /> */}
-            <img src="/public/diploma.png" className="w-full h-full object-cover rounded-2xl" />
+            <img src="/diploma.png" className="w-full h-full object-cover rounded-2xl" />
           </div>
 
           {/* Details */}
