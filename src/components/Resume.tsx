@@ -35,7 +35,7 @@ export const Resume: React.FC<ResumeProps> = ({ lang }) => {
   const isEn = lang === 'en';
 
   // مسار الملف في مجلد public مباشرة
-  const pdfFileName = isEn ? '/Amel_CV_EN.pdf' : '/Amel_CV_AR.pdf';
+  const pdfFileName =  '/AmelDev_CV.pdf' ;
 
   return (
     <div className="py-10 px-4 max-w-3xl mx-auto relative z-10">
