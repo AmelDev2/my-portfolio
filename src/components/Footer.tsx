@@ -1,6 +1,6 @@
 import React from 'react';
-import { Mail, GitBranch } from 'lucide-react';
-import  profile  from '../data/profile';
+import { Mail } from 'lucide-react';
+import profile from '../data/profile';
 
 interface FooterProps {
   lang: 'en' | 'ar';
@@ -18,17 +18,6 @@ export const Footer: React.FC<FooterProps> = ({ lang }) => {
         </p>
 
         <div className="flex items-center gap-5">
-          {profile.github && (
-            <a
-              href={profile.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`${linkClass} inline-flex items-center gap-1.5`}
-            >
-              <GitBranch className="w-4 h-4" />
-              <span>GitHub</span>
-            </a>
-          )}
           {profile.linkedin && (
             <a href={profile.linkedin} target="_blank" rel="noopener noreferrer" className={linkClass}>
               LinkedIn
