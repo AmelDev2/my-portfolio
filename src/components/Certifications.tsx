@@ -46,8 +46,8 @@ export const Certifications: React.FC<CertificationsProps> = ({ lang }) => {
             </span>
             <h3 className="text-2xl font-bold text-[(--text-primary)]">
               {lang === "en"
-                ? "Full-Stack Web Development Diploma"
-                : "شهادة دبلومة تطوير وتصميم الويب المتكامل"}
+                ? "FrontEnd Diploma"
+                :"شهادة دبلومة تطوير المواقع"}
             </h3>
             <p className="text-[(--text-secondary)] text-sm leading-relaxed">
               {lang === "en"
