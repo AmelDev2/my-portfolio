@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    /* Light Mode: برغندي + بيج + رمادي دافئ */
+    --bg-primary: #fdfbf7;      /* بيج كريمي دافئ */
+    --bg-secondary: #f4efe6;    /* بيج أعمق للبطاقات */
+    --bg-card: #ffffff;         /* أبيض ناصع للكروت */
+    --text-primary: #2a2421;    /* بني غامق ناعم للنصوص */
+    --text-secondary: #6e645e;  /* رمادي دافئ للنصوص الثانوية */
+    --accent-burgundy: #800020;/* برغندي كلاسيكي فاخر */
+    --accent-hover: #5c0017;   /* برغندي غامق للهوفر */
+    --border-color: #e6dfd5;   /* إطار بيج ناعم */
+    --glow-color: rgba(128, 0, 32, 0.15); /* توهج برغندي خفيف */
+  }
+
+  .dark {
+    /* Dark Mode: أزرق ليل غامق + برغندي فاخر + لمسة نيون */
+    --bg-primary: #0a0e17;      /* أزرق ليل غامق جداً */
+    --bg-secondary: #111827;    /* أزرق داكن للبطاقات */
+    --bg-card: #161e2e;         /* أزرق داكن بارز */
+    --text-primary: #f3f4f6;    /* أبيض هادئ للنصوص */
+    --text-secondary: #9ca3af;  /* رمادي فضي للنصوص الثانوية */
+    --accent-burgundy: #9b111e;/* برغندي ناصع وفاخر */
+    --accent-hover: #b81424;   /* برغندي أفتح للهوفر */
+    --border-color: #1f293d;   /* إطار كحلي مغلق */
+    --glow-color: rgba(155, 17, 30, 0.35); /* توهج برغندي مميز */
+  }
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem; /* لمنع اختفاء رأس القسم خلف الـ Navbar */
+}
+
+/* حلقة تركيز واضحة لمستخدمي لوحة المفاتيح */
+:focus-visible {
+  outline: 2px solid var(--accent-burgundy);
+  outline-offset: 2px;
+}
+
+
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 25s linear infinite;
+}
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+
+/* احترام تفضيل تقليل الحركة */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+
+@media print{
+  header,footer,button,nav{
+    display: none;
+  }
+
+  body{
+    background-color: white;
+    color: black;
+    margin: 2rem;
+  }
+
+  
+}
