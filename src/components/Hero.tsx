@@ -97,7 +97,7 @@ export const Hero: React.FC<HeroProps> = ({ lang }) => {
               rel="noopener noreferrer"
               className="px-6 py-3 rounded-xl bg-(--bg-secondary) text-(--text-primary) font-semibold border border-(--border-color) hover:border-(--accent-burgundy) transition-all"
             >
-              {lang === 'en' ? 'Download CV' : 'تحميل السيرة الذاتية'}
+              {lang === 'en' ? 'View Resume' : 'عرض السيرة الذاتية'}
             </Link>
           </div>
         </div>

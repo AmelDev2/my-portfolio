@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import { useTheme } from '../hooks/useTheme';
 import { Sun, Moon, Code2, Globe, Menu, X } from 'lucide-react';
 
@@ -9,25 +9,30 @@ interface NavbarProps {
 }
 
 const navLinks = [
-  { to: '/', en: 'Home', ar: 'الرئيسية', exact: true },
-  { to: '/#about', en: 'About', ar: 'عنّي', exact: false },
-  { to: '/#projects', en: 'Projects', ar: 'المشاريع', exact: false },
-  { to: '/#contact', en: 'Contact', ar: 'تواصل', exact: false },
-  { to: '/resume', en: 'Resume', ar: 'السيرة الذاتية', exact: false },
+  { to: '/', en: 'Home', ar: 'الرئيسية', isHome: true },
+  { to: '/#about', en: 'About', ar: 'عنّي' },
+  { to: '/#projects', en: 'Projects', ar: 'المشاريع' },
+  { to: '/#contact', en: 'Contact', ar: 'تواصل' },
+  { to: '/resume', en: 'Resume', ar: 'السيرة الذاتية', isPage: true },
 ];
 
 export const Navbar: React.FC<NavbarProps> = ({ lang, toggleLanguage }) => {
   const { theme, toggleTheme } = useTheme();
   const [menuOpen, setMenuOpen] = useState(false);
+  const location = useLocation();
 
-  // دالة لتحديد التنسيق النشط أو العادي للروابط مع خط تحتي وتغيير اللون
-  const getLinkClassName = ({ isActive }: { isActive: boolean }) => {
+  // تحديد ما إذا كان التواجد في الصفحة الرئيسية بدون هاش
+  const isPureHome = location.pathname === '/' && location.hash === '';
+
+  const getLinkStyle = (isActive: boolean) => {
     return `relative pb-1 transition-colors font-medium text-sm ${
       isActive
         ? 'text-[var(--accent-burgundy)] font-semibold border-b-2 border-[var(--accent-burgundy)]'
         : 'text-[var(--text-secondary)] hover:text-[var(--accent-burgundy)]'
     }`;
   };
+
+  const defaultStyle = "relative pb-1 transition-colors font-medium text-sm text-[var(--text-secondary)] hover:text-[var(--accent-burgundy)]";
 
   return (
     <nav className="sticky top-0 z-50 backdrop-blur-md bg-(--bg-primary)/80 border-b border-(--border-color) transition-colors duration-300">
@@ -45,16 +50,41 @@ export const Navbar: React.FC<NavbarProps> = ({ lang, toggleLanguage }) => {
         {/* Links & Controls */}
         <div className="flex items-center gap-3 md:gap-6">
           <div className="hidden md:flex items-center gap-6 text-sm font-medium">
-            {navLinks.map((link) => (
-              <NavLink
-                key={link.to}
-                to={link.to}
-                end={link.exact}
-                className={getLinkClassName}
-              >
-                {lang === 'en' ? link.en : link.ar}
-              </NavLink>
-            ))}
+            {navLinks.map((link) => {
+              if (link.isPage) {
+                return (
+                  <NavLink
+                    key={link.to}
+                    to={link.to}
+                    className={({ isActive }) => getLinkStyle(isActive)}
+                  >
+                    {lang === 'en' ? link.en : link.ar}
+                  </NavLink>
+                );
+              }
+
+              if (link.isHome) {
+                return (
+                  <a
+                    key={link.to}
+                    href={link.to}
+                    className={isPureHome ? getLinkStyle(true) : defaultStyle}
+                  >
+                    {lang === 'en' ? link.en : link.ar}
+                  </a>
+                );
+              }
+
+              return (
+                <a
+                  key={link.to}
+                  href={link.to}
+                  className={defaultStyle}
+                >
+                  {lang === 'en' ? link.en : link.ar}
+                </a>
+              );
+            })}
           </div>
 
           {/* Language Switcher */}
@@ -107,17 +137,44 @@ export const Navbar: React.FC<NavbarProps> = ({ lang, toggleLanguage }) => {
           id="mobile-menu"
           className="md:hidden border-t border-(--border-color) bg-(--bg-primary) px-6 py-4 flex flex-col gap-4 text-sm font-medium"
         >
-          {navLinks.map((link) => (
-            <NavLink
-              key={link.to}
-              to={link.to}
-              end={link.exact}
-              onClick={() => setMenuOpen(false)}
-              className={getLinkClassName}
-            >
-              {lang === 'en' ? link.en : link.ar}
-            </NavLink>
-          ))}
+          {navLinks.map((link) => {
+            if (link.isPage) {
+              return (
+                <NavLink
+                  key={link.to}
+                  to={link.to}
+                  onClick={() => setMenuOpen(false)}
+                  className={({ isActive }) => getLinkStyle(isActive)}
+                >
+                  {lang === 'en' ? link.en : link.ar}
+                </NavLink>
+              );
+            }
+
+            if (link.isHome) {
+              return (
+                <a
+                  key={link.to}
+                  href={link.to}
+                  onClick={() => setMenuOpen(false)}
+                  className={isPureHome ? getLinkStyle(true) : defaultStyle}
+                >
+                  {lang === 'en' ? link.en : link.ar}
+                </a>
+              );
+            }
+
+            return (
+              <a
+                key={link.to}
+                href={link.to}
+                onClick={() => setMenuOpen(false)}
+                className={defaultStyle}
+              >
+                {lang === 'en' ? link.en : link.ar}
+              </a>
+            );
+          })}
         </div>
       )}
     </nav>
