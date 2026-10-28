@@ -40,7 +40,7 @@ export const projectsData: Project[] = [
     title: 'Kanban Task Management',
     descriptionEn: 'A feature-rich Kanban task management web application built with React, allowing users to efficiently organize tasks, manage multiple boards, and seamlessly drag and drop.',
     descriptionAr: 'تطبيق ويب تفاعلي وإثراكي لإدارة المهام بنظام الكانبان مبني بـ React، يتيح تنظيم المهام وإدارة لوحات متعددة مع خاصية السحب والإفلات.',
-    image: '/public/kanbanBoard.png',
+    image: '/kanbanBoard.png',
     tags: ['React', 'TypeScript', 'Tailwind CSS', '@dnd-kit', 'Immer', 'Radix UI'],
     demoUrl: 'https://kanban-board-one-liard.vercel.app/',
     githubUrl: 'https://github.com/AmelDev2/kanban-board',
@@ -67,7 +67,7 @@ export const projectsData: Project[] = [
     title: 'Around The World Explorer',
     descriptionEn: 'An interactive web app built with Vanilla JavaScript to explore countries, search regions, and fetch real-time global demographic data.',
     descriptionAr: 'تطبيق ويب تفاعلي مبني باستخدام جافاسكريفت لاستكشاف الدول، البحث في الأقاليم، وجلب بيانات ديموغرافية عالمية فورية.',
-    image: '/public/aroundTheWorld.png',
+    image: '/aroundTheWorld.png',
     tags: ['JavaScript', 'HTML5/CSS3', 'REST API'],
     demoUrl: '#',
     githubUrl: 'https://github.com/AmelDev2/Around_the_World',
@@ -88,7 +88,7 @@ export const projectsData: Project[] = [
     title: 'Modern To-Do List',
     descriptionEn: 'A sleek, modern, and minimalist Task Management application built using core web technologies, featuring Glassmorphism UI and persistent storage.',
     descriptionAr: 'تطبيق عصري وأنيق لإدارة المهام يعتمد على تقنيات الويب الأساسية، ويتميز بتصميم Glassmorphism وتخزين البيانات محلياً.',
-    image: '/public/todopic.png', // يمكنك استبدالها بصورة أو استخدام رابط معاينة
+    image: '/todopic.png', // يمكنك استبدالها بصورة أو استخدام رابط معاينة
     tags: ['JavaScript', 'HTML5', 'CSS3', 'LocalStorage'],
     demoUrl: 'https://ameldev2.github.io/modern-todo/', // يمكنك وضعه هنا أو رابط المعاينة إذا تم رفعه
     githubUrl: 'https://github.com/AmelDev2/modern-todo',

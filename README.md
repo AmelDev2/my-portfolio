@@ -1,75 +1,43 @@
-# React + TypeScript + Vite
+# 🚀 Amel.dev | Personal Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Amel.dev Preview] ![alt text](image-1.png)
 
-Currently, two official plugins are available:
+A modern, responsive, and performance-optimized personal portfolio showcasing my journey, skills, and featured projects as a Frontend Developer. 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+🔗 **Live Website:** [amel-dev-portfolio.vercel.app](https://amel-dev-portfolio.vercel.app)
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## ✨ Features
 
-## Expanding the ESLint configuration
+- **Interactive UI/UX:** Built with smooth motion effects using **Framer Motion** and interactive mouse tracking elements.
+- **Dynamic Theme Toggling:** Seamless switching between Light and Dark modes with custom CSS variables and persistent states.
+- **Bilingual Support:** Fully equipped for Arabic and English interfaces.
+- **Responsive Design:** Optimized layout ensuring an exceptional experience across mobile devices, tablets, and desktops.
+- **Direct CV Access & PDF Integration:** Quick viewing and downloading capabilities for professional resumes.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🛠️ Tech Stack
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+This project is crafted with modern web technologies:
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- **Core:** [React](https://react.dev/), [TypeScript](https://www.typescriptlang.org/)
+- **Build Tool:** [Vite](https://vitejs.dev/)
+- **Styling:** [Tailwind CSS v4](https://tailwindcss.com/)
+- **Animations:** [Framer Motion](https://www.framer.com/motion/)
+- **Icons & UI Utilities:** [Lucide React](https://lucide.dev/), `react-router-dom`
+- **Deployment:** [Vercel](https://vercel.com/)
 
-```
+---
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+## 📂 Project Structure
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
-```
+```tree
+src/
+├── components/     # Reusable UI components (Navbar, Hero, Projects, Contact, etc.)
+├── hooks/          # Custom React hooks (Theme management, etc.)
+├── data/           # Structured project and skill data
+├── App.tsx         # Main application component & routes
+└── main.tsx        # Application entry point
+public/             # Static assets (CV PDFs, project showcase images)
